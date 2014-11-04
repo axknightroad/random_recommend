@@ -1,4 +1,4 @@
-random select and recommend app
+random select and recommend
 =============
 just 4 fun！
 
