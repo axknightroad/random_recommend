@@ -1,3 +1,5 @@
-just for fun
+just 4 fun
 =============
-**a present for who have procrastination**
+**拖延症患者的福音！！！**
+
+自用小程序
