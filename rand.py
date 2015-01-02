@@ -2,15 +2,23 @@
 import random
 print "欢迎使用随机选择器"
 flag=True
+add_over=False
 
-
-print "请输入选项数目"
-d=input("> ")
+#print "请输入选项数目"
+#d=input("> ")
 list=[]
-for i in range(0,d):
-    print "请输入第%d个选项名" %(i+1)
-    list.append(raw_input("> "))
-    
+#for i in range(0,d):
+d=0
+
+while not add_over:
+    print "请输入选项名，输入e结束"
+    item=raw_input("> ")
+    if item!='e':
+        list.append(item)
+        d+=1
+    else:
+        add_over=True
+add_over=False    
 while True:
     r=random.randint(0, 10000)    
     print "\n经过随机处理，我们建议您选择：",list[r%d],"\n"
@@ -29,23 +37,37 @@ while True:
         print "请选择修改方式，输入1增加候选项，输入2删除已有候选项"
         choice=input("> ")
         if choice == 1 :
-            print "请输入增加的数目："
-            num=input("> ")
-            for i in range(0,num):
-                print "请输入增加的第%d个选项名" %(i+1)
-                list.append(raw_input("> "))
-            d+=num
+            #print "请输入增加的数目："
+            #num=input("> ")
+            #for i in range(0,num):
+            #    print "请输入增加的第%d个选项名" %(i+1)
+            #    list.append(raw_input("> "))
+            #d+=num
+            while not add_over:
+                print "请输入选项名，输入e结束"
+                item=raw_input("> ")
+                if item!='e':
+                    list.append(item)
+                    d+=1
+                else:
+                    add_over=True
+            add_over=False
         elif choice ==2 :
-            print "请输入删除的数目："
-            num=input("> ")
-            for i in range(0,num):
-                print "请输入要删除的项的编号：\n"
+            #print "请输入删除的数目："
+            #num=input("> ")
+            del_over
+            while not del_over:
+                print "请输入要删除的项的编号，输入e结束：\n"
                 k=0
                 for obj in list:
                     print k,".",obj,"\n"
                     k+=1
-                del list[input("> ")]
-            d-=num
+                num=input("> ")
+                if num!='e':    
+                    del list[num]
+                    d-=1
+                else:
+                    del_over=True
         print "是否继续修改，输入y继续修改，输入其余字符串结束修改 "
         if raw_input("> ")=="y":
             flag=True
