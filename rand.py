@@ -34,7 +34,7 @@ while True:
         flag=False
         
     while flag == True:   
-        print "请选择修改方式，输入1增加候选项，输入2删除已有候选项"
+        print "请选择修改方式，输入1增加候选项，输入2删除已有候选项，输入其他结束修改"
         choice=input("> ")
         if choice == 1 :
             #print "请输入增加的数目："
@@ -55,19 +55,21 @@ while True:
         elif choice ==2 :
             #print "请输入删除的数目："
             #num=input("> ")
-            del_over
+            del_over=False
             while not del_over:
-                print "请输入要删除的项的编号，输入e结束：\n"
+                print "请输入要删除的项的编号，输入e结束"
                 k=0
                 for obj in list:
-                    print k,".",obj,"\n"
+                    print k,".",obj
                     k+=1
-                num=input("> ")
-                if num!='e':    
+                num=raw_input("> ")
+                if num.isdigit() and num < len(list):    
                     del list[num]
                     d-=1
-                else:
+                if num == 'e':
                     del_over=True
+                else:
+                    print "输入错误，请重新输入"
         print "是否继续修改，输入y继续修改，输入其余字符串结束修改 "
         if raw_input("> ")=="y":
             flag=True
